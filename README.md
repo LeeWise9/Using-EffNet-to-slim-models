@@ -8,8 +8,9 @@ This project will explore how the efficiency network can improve the calculation
 本项目主要包含四个部分：<br>
 * 1.空间可分离卷积（Spatial Separable Convolution）；<br>
 * 2.深度可分离卷积（Depth Separable Convolution）；<br>
-* 3.将EffNet应用到手写数字识别；<br>
-* 4.将EffNet应用到方向盘角度预测。<br>
+* 3.EffNet和MobileNet
+* 4.将EffNet应用到手写数字识别；<br>
+* 5.将EffNet应用到方向盘角度预测。<br>
 
 
 ## 1.空间可分离卷积（Spatial Separable Convolution）<br>
@@ -65,16 +66,18 @@ Depth Separable Convolution 将普通卷积分为两个步骤，下面举例说�
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB3.jpg" alt="Sample"  width="500">
 </p>
 
-于是深度可分离卷积需要：5x5x3+256x1x1x3x8x8 = 53952 个参数，是普通卷积参数量的4.39%。
+于是深度可分离卷积需要：5x5x3x8x8+256x1x1x3x8x8 = 53952 个参数，是普通卷积参数量的(1/256)+(1/5x5)=4.39%。
 
-可以推广一下，随着通道数越来越多，深度可分离卷积就能够节省更多的参数。
+可以推广一下，如果通道数更大、普通卷积的卷积核越大，那么深度可分离卷积就能够节省更多的参数。
+
+## 3.EffNet和MobileNet
+[EffNet](https://arxiv.org/abs/1801.06434)和[MobileNet](https://arxiv.org/abs/1704.04861)
+
+## 4.将EffNet应用到手写数字识别
+将EffNet应用到手写数字识别
 
 
-## 3.将EffNet应用到手写数字识别
-
-
-
-## 4.将EffNet应用到方向盘角度预测
+## 5.将EffNet应用到方向盘角度预测
 
 
 
