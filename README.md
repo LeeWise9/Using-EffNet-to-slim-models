@@ -36,12 +36,12 @@ Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/%E6%99%AE%E9%80%9A%E5%8D%B7%E7%A7%AF.jpg" alt="Sample"  width="500">
 </p>
 
-一个5x5x3滤波器得到的输出图像8x8x1，设通道数为256，则需要：5x5x3x256x8x8 = 1228800 个参数。如下图所示：<br>
+一个5x5x3滤波器得到的输出图像8x8x1，设通道数为256，不考虑偏置项，需要：5x5x5x256 = 19200 个参数，计算量为：5x5x3x256x8x8 = 1228800 。如下图所示：<br>
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/%E6%99%AE%E9%80%9A%E5%8D%B7%E7%A7%AF2.jpg" alt="Sample"  width="500">
 </p>
 
-正常卷积的问题在于，卷积核是针对图片的所有通道设计的。那么输出每增加一个通道，卷积核就要增加一个。所以普通卷积参数量 = 属性的总数x卷积核的大小。
+正常卷积的问题在于，卷积核将对图片的所有通道做卷积计算的。那么输出每增加一个通道，卷积核就要增加一个。
 
 
 深度可分离卷积分为两步：<br>
@@ -66,7 +66,7 @@ Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/%E6%B7%B1%E5%BA%A6%E5%8F%AF%E5%88%86%E7%A6%BB3.jpg" alt="Sample"  width="500">
 </p>
 
-于是深度可分离卷积需要：5x5x3x8x8+256x1x1x3x8x8 = 53952 个参数，是普通卷积参数量的(1/256)+(1/5x5)=4.39%。
+于是深度可分离卷积的参数量为：5x5x1x3+1x1x3x256 = 843，为普通卷积的(1/256)+(1/5x5)=4.39%；计算量为：5x5x3x8x8+256x1x1x3x8x8 = 53952 ，同样是普通卷积的4.39%。
 
 可以推广一下，如果通道数更大、普通卷积的卷积核越大，那么深度可分离卷积就能够节省更多的参数。
 
