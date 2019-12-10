@@ -47,7 +47,6 @@ Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例
 深度可分离卷积分为两步：<br>
 1. 用三个卷积对三个通道分别做卷积，这样在一次卷积后，输出3个数。<br>
 2. 这输出的三个数，再通过一个1x1x3的卷积核，得到一个数。<br>
-所以深度可分离卷积其实是通过两次卷积实现的。
 
 第一步，对三个通道分别做卷积，输出三个通道的属性：<br>
 <p align="center">
@@ -103,11 +102,15 @@ MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加�
 
 将EffNet应用到手写数字识别，可获得如下结果：
 
-Baseline参数量：147658；经20个epochs后的训练结果：train_acc: 0.9907，val_loss: 0.9943；误差下降曲线如下：
+Baseline参数量：147658；经20个epochs后：train_acc: 0.9907，val_loss: 0.9943；误差下降曲线如下：<br>
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/base_model.jpg" alt="Sample"  width="800">
+</p>
 
-
-EffNet参数量：121082；经20个epochs后的训练结果：train_acc: 0.9859，val_loss: 0.9874；误差下降曲线如下：
-
+EffNet参数量：68090；经20个epochs后：train_acc: 0.9673，val_loss: 0.9798；经50个epochs后：train_acc: 0.9740，val_loss: 0.9832；误差下降曲线如下：<br>
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/eff_model.jpg" alt="Sample"  width="800">
+</p>
 
 ## 5.将EffNet应用到方向盘角度预测<br>
 将EffNet应用到方向盘角度预测。
