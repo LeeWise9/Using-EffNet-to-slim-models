@@ -104,15 +104,23 @@ MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加�
 
 Baseline参数量：147658；经20个epochs后：train_acc: 0.9907，val_loss: 0.9943；误差下降曲线如下：<br>
 <p align="center">
-	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/base_model.jpg" alt="Sample"  width="800">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/base_model.jpg" alt="Sample"  width="500">
 </p>
 
 EffNet参数量：68090；经20个epochs后：train_acc: 0.9673，val_loss: 0.9798；经50个epochs后：train_acc: 0.9740，val_loss: 0.9832；误差下降曲线如下：<br>
 <p align="center">
-	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/eff_model.jpg" alt="Sample"  width="800">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/eff_model.jpg" alt="Sample"  width="500">
 </p>
 
+EffNet用了Baseline46.11%的参数量，得到了98.88%的性能。
+
+
 ## 5.将EffNet应用到方向盘角度预测<br>
-将EffNet应用到方向盘角度预测。
+使用神经网络了预测方向盘转动角度是我另外一个项目（[传送门](https://github.com/LeeWise9/Autopilot_Self_Driving_Car_Steering)），本项目考虑使用EffNet优化一下该网络。
+
+
+
+
+
 
 
