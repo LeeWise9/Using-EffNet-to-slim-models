@@ -90,6 +90,7 @@ MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加�
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenets.jpg" alt="Sample"  width="500">
 </p>
+
 可以发现Baseline的第一个卷积层为3x3x64 + mp，对应于EffNet的第一组卷积层为 1x1x32 + (dw1x3 + 1d mp) + dw 3x1 + (2x1x64 + 1d stride)。其中mp为池化层，dw为深度可分离卷积（可以通过[keras.layers.DepthwiseConv2D](https://keras.io/zh/layers/convolutional/#depthwiseconv2d)实现）。下面逐步作解释。
 
 1. 1x1x32：使用32个1x1的卷积核做卷积；<br>
