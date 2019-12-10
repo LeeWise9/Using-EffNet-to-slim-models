@@ -7,8 +7,8 @@ This project will explore how the efficiency network can improve the calculation
 
 本项目主要包含四个部分：<br>
 * 1.空间可分离卷积（Spatial Separable Convolution）；<br>
-* 2.深度可分离卷积（Depth Separable Convolution）；<br>
-* 3.EffNet和MobileNet
+* 2.深度可分离卷积（Depthwise Separable Convolution）；<br>
+* 3.EffNet和MobileNets
 * 4.将EffNet应用到手写数字识别；<br>
 * 5.将EffNet应用到方向盘角度预测。<br>
 
@@ -28,8 +28,8 @@ Spatial Separable Convolution 将普通卷集核拆分为两个更小的卷积�
 </p>
 
 
-## 2.深度可分离卷积（Depth Separable Convolution）<br>
-Depth Separable Convolution 将普通卷积分为两个步骤，下面举例说明。
+## 2.深度可分离卷积（Depthwise Separable Convolution）<br>
+Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例说明。
 
 假设原始图像大小是12x12，有三个通道RGB，其输入图片格式是：12x12x3。滤波器窗口大小是5x5x3，得到的输出图像大小是8x8x1（padding模式是valid）。<br>
 <p align="center">
@@ -70,14 +70,27 @@ Depth Separable Convolution 将普通卷积分为两个步骤，下面举例说�
 
 可以推广一下，如果通道数更大、普通卷积的卷积核越大，那么深度可分离卷积就能够节省更多的参数。
 
-## 3.EffNet和MobileNet
-[EffNet](https://arxiv.org/abs/1801.06434)和[MobileNet](https://arxiv.org/abs/1704.04861)
+## 3.EffNet和MobileNets<br>
+为了将神经网络应用到移动或嵌入式平台上，[EffNet](https://arxiv.org/abs/1801.06434)和[MobileNets](https://arxiv.org/abs/1704.04861)被提出。MobileNets基于流线型架构，使用深度可分离卷积来构建轻量级深度神经网络。EffNet对MobileNets的轻量级的模型进行了进一步优化，同时使用深度可分离卷积与空间可分离卷积，模型进一步减小。
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenets.jpg" alt="Sample"  width="500">
+</p>
 
-## 4.将EffNet应用到手写数字识别
-将EffNet应用到手写数字识别
+MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加了空间可分离卷积，进一步减少了参数量。
+
+下图是EffNet、MobileNets和ShuffleNet在Cifar10数据集上的测试结果：
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenets3.jpg" alt="Sample"  width="500">
+</p>
+
+可以发现，在计算量几乎相同的情况下，EffNet比传统神经网络拥有更高的准确率；与MobileNet和ShuffleNet相比同样具有更好的网络性能。
 
 
-## 5.将EffNet应用到方向盘角度预测
+## 4.将EffNet应用到手写数字识别<br>
+将EffNet应用到手写数字识别。
 
+
+## 5.将EffNet应用到方向盘角度预测<br>
+将EffNet应用到方向盘角度预测。
 
 
