@@ -45,8 +45,8 @@ Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例
 
 
 深度可分离卷积分为两步：<br>
-### 1.用三个卷积对三个通道分别做卷积，这样在一次卷积后，输出3个数。<br>
-### 2.这输出的三个数，再通过一个1x1x3的卷积核，得到一个数。<br>
+1. 用三个卷积对三个通道分别做卷积，这样在一次卷积后，输出3个数。<br>
+2. 这输出的三个数，再通过一个1x1x3的卷积核，得到一个数。<br>
 所以深度可分离卷积其实是通过两次卷积实现的。
 
 第一步，对三个通道分别做卷积，输出三个通道的属性：<br>
@@ -87,7 +87,26 @@ MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加�
 
 
 ## 4.将EffNet应用到手写数字识别<br>
-将EffNet应用到手写数字识别。
+原文作者提出如下图所示的网络架构：<br>
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenet4.jpg" alt="Sample"  width="800">
+</p>
+
+可以发现Baseline的第一个卷积层为3x3x64 + mp，对应于EffNet的第一组卷积层为 1x1x32 + (dw1x3 + 1d mp) + dw 3x1 + (2x1x64 + 1d stride)。其中mp为池化层，dw为深度可分离卷积（可以通过[keras.layers.DepthwiseConv2D](https://keras.io/zh/layers/convolutional/#depthwiseconv2d)实现）。下面逐步作解释。
+
+1. 1x1x32：使用32个1x1的卷积核做卷积；<br>
+2. dw1x3 + 1d mp：使用一个行向量做深度可分离卷积，再加上一个一维池化层，行步长为2，列步长为1；<br>
+3. dw 3x1：使用一个列向量做深度可分离卷积；<br>
+4. 2x1x64 + 1d stride：使用64个2x1的卷积核做普通卷积，列步长为2，行步长为1。
+
+需要注意的是，Baseline的特征通道数为64，在EffNet中，第1步输入端通道数为32，第4步输出端通道数为64，这样设置保证了两者的参数量相差不太大，使计算结果更具可比性。另外很重要一点是，EffNet在第2步做完dw1x3之后有一个一维池化 1d mp，将图片宽度变为原来的一半，之后在第4步设置列步长为2，使图片长度变为原来的一半，这与Baseline的输出图在通道数和图片尺寸上相同。
+
+将EffNet应用到手写数字识别，可获得如下结果：
+
+Baseline参数量：147658；经20个epochs后的训练结果：train_acc: 0.9907，val_loss: 0.9943；误差下降曲线如下：
+
+
+EffNet参数量：121082；经20个epochs后的训练结果：train_acc: 0.9859，val_loss: 0.9874；误差下降曲线如下：
 
 
 ## 5.将EffNet应用到方向盘角度预测<br>
