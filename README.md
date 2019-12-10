@@ -72,7 +72,7 @@ Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例
 ## 3.EffNet和MobileNets<br>
 为了将神经网络应用到移动或嵌入式平台上，[EffNet](https://arxiv.org/abs/1801.06434)和[MobileNets](https://arxiv.org/abs/1704.04861)被提出。MobileNets基于流线型架构，使用深度可分离卷积来构建轻量级深度神经网络。EffNet对MobileNets的轻量级的模型进行了进一步优化，同时使用深度可分离卷积与空间可分离卷积，模型进一步减小。
 <p align="center">
-	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenets.jpg" alt="Sample"  width="500">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenet4.jpg" alt="Sample"  width="800">
 </p>
 
 MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加了空间可分离卷积，进一步减少了参数量。
@@ -88,9 +88,8 @@ MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加�
 ## 4.将EffNet应用到手写数字识别<br>
 原文作者提出如下图所示的网络架构：<br>
 <p align="center">
-	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenet4.jpg" alt="Sample"  width="800">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/effnet%2Cmobilenets.jpg" alt="Sample"  width="500">
 </p>
-
 可以发现Baseline的第一个卷积层为3x3x64 + mp，对应于EffNet的第一组卷积层为 1x1x32 + (dw1x3 + 1d mp) + dw 3x1 + (2x1x64 + 1d stride)。其中mp为池化层，dw为深度可分离卷积（可以通过[keras.layers.DepthwiseConv2D](https://keras.io/zh/layers/convolutional/#depthwiseconv2d)实现）。下面逐步作解释。
 
 1. 1x1x32：使用32个1x1的卷积核做卷积；<br>
