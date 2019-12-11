@@ -120,12 +120,12 @@ EffNet用了Baseline46.11%的参数量，得到了98.88%的性能。
 
 在构建预测方向盘转动角度的专用Effnet时，采取了和mnist相似的策略，不同的是，增加了批正则化层（BatchNormalization）并把relu激活函数改为LeakyReLU，事实证明，这些举措是挺有效的。
 
-base_model参数量：865,921；经21个epochs后：train_loss: 0.1016，val_loss: 0.0994；误差下降曲线如下：<br>
+base_model参数量：865,921；模型大小：10,225KB；经21个epochs后：train_loss: 0.1016，val_loss: 0.0994；误差下降曲线如下：<br>
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_base.jpg" alt="Sample"  width="500">
 </p>
 
-eff_model参数量：630,433；经21个epochs后：train_loss: 0.1224，val_loss: 0.1074；误差下降曲线如下：<br>
+eff_model参数量：630,433；模型大小：7,566KB；经21个epochs后：train_loss: 0.1224，val_loss: 0.1074；误差下降曲线如下：<br>
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_eff2.jpg" alt="Sample"  width="500">
 </p>
@@ -135,4 +135,6 @@ eff_model参数量：630,433；经21个epochs后：train_loss: 0.1224，val_loss
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/drive_eff.gif" alt="Sample"  width="500">
 </p>
+
+对比两个模型各项参数，可以发现提升还是很明显的。足以证明EffNet在为模型减重，提升模型性能上还是很有效的。
 
