@@ -122,12 +122,12 @@ EffNet用了Baseline46.11%的参数量，得到了98.88%的性能。
 
 base_model参数量：865,921；经21个epochs后：train_loss: 0.1016，val_loss: 0.0994；误差下降曲线如下：<br>
 <p align="center">
-	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/base_model.jpg" alt="Sample"  width="500">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_base.jpg" alt="Sample"  width="500">
 </p>
 
 eff_model参数量：634,913；经21个epochs后：train_loss: 0.1558，val_loss: 0.1366；误差下降曲线如下：<br>
 <p align="center">
-	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/eff_model.jpg" alt="Sample"  width="500">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_eff.jpg" alt="Sample"  width="500">
 </p>
 
 
