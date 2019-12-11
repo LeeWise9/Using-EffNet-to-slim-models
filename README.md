@@ -130,11 +130,13 @@ eff_model参数量：630,433；模型大小：7,566KB；经21个epochs后：trai
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_eff2.jpg" alt="Sample"  width="500">
 </p>
 
-虽然EffNet的训练、测试误差值看起来较大，但是模型的表现效果却更好，我用模拟器录制了一段视频，可以说车技了得了！
+EffNet的训练、测试误差值看起来较大，但模型的表现效果更好，我用模拟器录制了一段视频，可以说车技了得！<br>
 
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/drive_eff.gif" alt="Sample"  width="500">
 </p>
 
-对比两个模型各项参数，可以发现提升还是很明显的。足以证明EffNet在为模型减重，提升模型性能上还是很有效的。
-
+对比两个模型各项参数，可以发现提升还是很明显的。足以证明EffNet在为模型减重，提升模型性能上还是很有效的。<br>
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/%E5%AF%B9%E6%AF%94.jpg" alt="Sample"  width="500">
+</p>
