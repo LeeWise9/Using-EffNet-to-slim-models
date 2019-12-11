@@ -125,12 +125,12 @@ base_model参数量：865,921；经21个epochs后：train_loss: 0.1016，val_los
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_base.jpg" alt="Sample"  width="500">
 </p>
 
-eff_model参数量：634,913；经21个epochs后：train_loss: 0.1558，val_loss: 0.1366；误差下降曲线如下：<br>
+eff_model参数量：630,433；经21个epochs后：train_loss: 0.1224，val_loss: 0.1074；误差下降曲线如下：<br>
 <p align="center">
-	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_eff.jpg" alt="Sample"  width="500">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/train_val_loss_eff2.jpg" alt="Sample"  width="500">
 </p>
 
-
+虽然EffNet的训练、测试误差值看起来较大，但是模型的表现效果却更好，我用模拟器录制了一段视频，可以说车技了得了！
 
 
 
