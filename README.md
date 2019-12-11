@@ -132,5 +132,7 @@ eff_model参数量：630,433；经21个epochs后：train_loss: 0.1224，val_loss
 
 虽然EffNet的训练、测试误差值看起来较大，但是模型的表现效果却更好，我用模拟器录制了一段视频，可以说车技了得了！
 
-
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/drive_eff.gif" alt="Sample"  width="500">
+</p>
 
