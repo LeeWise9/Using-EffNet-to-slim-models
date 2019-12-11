@@ -1,4 +1,4 @@
-# Using-EffNet-to-build-lightweight-neural-network
+# Using EffNet to slim models
 This project will explore how the efficiency network can improve the calculation efficiency and reduce the size of the model. Taking the steering wheel angle prediction network as an example, it runs on the GPU based on keras.
 
 
@@ -102,12 +102,12 @@ MobileNets中已经使用了深度可分离卷积，EffNet在此基础上添加�
 
 将EffNet应用到手写数字识别，可获得如下结果：
 
-Baseline参数量：147658；经20个epochs后：train_acc: 0.9907，val_loss: 0.9943；误差下降曲线如下：<br>
+Baseline参数量：147658；经20个epochs后：train_acc: 0.9907，val_loss: 0.9943；正确率变化曲线如下：<br>
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/base_model.jpg" alt="Sample"  width="500">
 </p>
 
-EffNet参数量：68090；经20个epochs后：train_acc: 0.9673，val_loss: 0.9798；经50个epochs后：train_acc: 0.9740，val_loss: 0.9832；误差下降曲线如下：<br>
+EffNet参数量：68090；经20个epochs后：train_acc: 0.9673，val_loss: 0.9798；经50个epochs后：train_acc: 0.9740，val_loss: 0.9832；正确率变化曲线如下：<br>
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/eff_model.jpg" alt="Sample"  width="500">
 </p>
@@ -118,7 +118,17 @@ EffNet用了Baseline46.11%的参数量，得到了98.88%的性能。
 ## 5.将EffNet应用到方向盘角度预测<br>
 使用神经网络了预测方向盘转动角度是我另外一个项目（[传送门](https://github.com/LeeWise9/Autopilot_Self_Driving_Car_Steering)），本项目考虑使用EffNet优化一下该网络。
 
+在构建预测方向盘转动角度的专用Effnet时，采取了和mnist相似的策略，不同的是，增加了批正则化层（BatchNormalization）并把relu激活函数改为LeakyReLU，事实证明，这些举措是挺有效的。
 
+base_model参数量：865,921；经21个epochs后：train_loss: 0.1016，val_loss: 0.0994；误差下降曲线如下：<br>
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/base_model.jpg" alt="Sample"  width="500">
+</p>
+
+eff_model参数量：634,913；经21个epochs后：train_loss: 0.1558，val_loss: 0.1366；误差下降曲线如下：<br>
+<p align="center">
+	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/eff_model.jpg" alt="Sample"  width="500">
+</p>
 
 
 
