@@ -5,7 +5,7 @@ This project will explore how the efficiency network can improve the calculation
 本项目将探讨[EffNet](https://arxiv.org/abs/1801.06434)是如何提高计算效率并减小模型大小的，该项目以方向盘角度预测网络为例，基于keras，在gpu上运行。
 
 
-本项目主要包含四个部分：<br>
+本项目主要包含以下几个部分：<br>
 * 1.空间可分离卷积（Spatial Separable Convolution）；<br>
 * 2.深度可分离卷积（Depthwise Separable Convolution）；<br>
 * 3.EffNet和MobileNets
@@ -36,7 +36,7 @@ Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/%E6%99%AE%E9%80%9A%E5%8D%B7%E7%A7%AF.jpg" alt="Sample"  width="500">
 </p>
 
-一个5x5x3滤波器得到的输出图像8x8x1，设通道数为256，不考虑偏置项，需要：5x5x5x256 = 19200 个参数，计算量为：5x5x3x256x8x8 = 1228800 。如下图所示：<br>
+一个5x5x3滤波器得到的输出图像8x8x1，设通道数为256，不考虑偏置项，需要：5x5x3x256 = 19200 个参数，计算量为：5x5x3x256x8x8 = 1228800 。如下图所示：<br>
 <p align="center">
 	<img src="https://github.com/LeeWise9/Img_repositories/blob/master/%E6%99%AE%E9%80%9A%E5%8D%B7%E7%A7%AF2.jpg" alt="Sample"  width="500">
 </p>
@@ -45,8 +45,6 @@ Depthwise Separable Convolution 将普通卷积分为两个步骤，下面举例
 
 
 深度可分离卷积分为两步：<br>
-1. 用三个卷积对三个通道分别做卷积，这样在一次卷积后，输出3个数。<br>
-2. 这输出的三个数，再通过一个1x1x3的卷积核，得到一个数。<br>
 
 第一步，对三个通道分别做卷积，输出三个通道的属性：<br>
 <p align="center">
